@@ -51,9 +51,9 @@ function displyCity() {
     $(".list-lastfive").removeClass('list-lastfivehide');
 
 
-    var currentWether = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=metric';
+    var currentWether = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=metric';
 
-    var locationDetailsFind = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + "," + countryCode + '&appid=' + APIKey;
+    var locationDetailsFind = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + "," + countryCode + '&appid=' + APIKey;
 
     if (!city) {
         openDialog();
@@ -130,7 +130,7 @@ function displyCity() {
                 var lat = data[0].lat;
                 var lon = data[0].lon;
 
-                var forecastWether = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + APIKey + '&units=metric';
+                var forecastWether = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + APIKey + '&units=metric';
 
                 fetch(forecastWether)
                     .then(function (response) {
