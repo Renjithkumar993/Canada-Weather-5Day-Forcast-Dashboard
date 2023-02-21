@@ -1,5 +1,5 @@
 
-document.body.style.zoom="100%"
+document.body.style.zoom="80%"
 var today = dayjs().format('dddd, MMMM D YYYY');
 
 
