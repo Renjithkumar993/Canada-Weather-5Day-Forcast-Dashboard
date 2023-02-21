@@ -55,7 +55,7 @@ function displyCity() {
     $(".currentWeather").hide();
     $(".last5search ").hide();
 
-    $(".list-lastfive").removeClass('list-lastfivehide');
+   
 
 
     var currentWether = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=metric';
@@ -87,6 +87,7 @@ function displyCity() {
                 $(".animate").removeClass('animate');
                 $(".list-lastfive").show();
                 $(".btn-secondary").hide();
+                $(".list-lastfive").removeClass('list-lastfivehide');
 
 
 
