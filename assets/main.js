@@ -5,7 +5,7 @@ $(document).ready(function () {
     document.body.style.zoom = "80%"
 });
 
-$(".navbar-text").on('click', function(){
+$(".navbar-text").on('click', function () {
     location.reload();
 });
 
@@ -170,7 +170,7 @@ function displyCity() {
                             wind = Math.round(wind);
 
 
-                            var forecast = $("<div>").addClass("card m-3 cardHover ").css("width", "18rem").append(
+                            var forecast = $("<div>").addClass("card ms-3 cardHover ").css("width", "18rem").append(
                                 $("<h5>").addClass("card-title fs-5 text card-header").text(forcastTime),
 
 
@@ -265,14 +265,14 @@ $(".btn-secondary").on('click', function () {
 })
 
 
-$(".list-lastfive").on('click', '.list-group-item',function () {
+$(".list-lastfive").on('click', '.list-group-item', function () {
 
     city = $(this).text();
     displyCity();
 })
 
 
-$(".clearstore").on('click',function(){
+$(".clearstore").on('click', function () {
 
     localStorage.clear();
     $(".list-lastfive").text(" ");

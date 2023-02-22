@@ -1,70 +1,64 @@
-
-*{
+* {
   font-family: 'Frank Ruhl Libre', serif;
 
 
 }
 
-html,body{
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+html,
+body {
   overflow-x: hidden;
-  background-image: url(./worldmap.webp);
-background-size:cover;
-background-position: top;
-
 }
 
+body {
+  background-image: url(./worldmap.webp);
 
-.navbar{
+  background-size: cover;
+  background-position: top;
+}
+
+.navbar {
   background-image: url(./header.png);
   background-size: cover;
   background-position: center;
-  
+
 }
 
-.navbar-text{
- color:white ;
+.navbar-text {
+  color: white;
 }
 
 .no-close .ui-dialog-titlebar-close {
-    display: none;
-  }
- .card-img{
+  display: none;
+}
+
+.card-img {
   width: 250px;
- }
- .cardHover{
+  margin-top: 25px;
+}
+
+.cardHover {
   transition: all 0.3s ease-in-out
-  }
- .cardHover:hover{
+}
+
+.cardHover:hover {
   transform: translateY(-10px);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
- }
-.animate{
-transition: 5s ease;
-position: absolute;
-left: 35%;
+}
+
+.animate {
+  transition: 5s ease;
+  position: absolute;
+  left: 35%;
 }
 
 
-.currentWeather{
+.currentWeather {
 
   transition: .15s;
 }
 
 
-/* .footbar{
-
-  position: absolute;
-  bottom: 0%;
-  width: 100%;
-  background-color: ;
-
-} */
-
-.form-label{
+.form-label {
   color: white;
 }
 
@@ -72,18 +66,18 @@ left: 35%;
 .list-lastfivehide {
 
   position: absolute;
-bottom: 0%;
-left:35%;
+  left: 35%;
 }
 
-.list-group-item{
-  cursor: pointer;
-}
-.navbar-text{
+.list-group-item {
   cursor: pointer;
 }
 
-.clearstore{
+.navbar-text {
+  cursor: pointer;
+}
+
+.clearstore {
   position: absolute;
   left: 8%;
 }
