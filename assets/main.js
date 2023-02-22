@@ -5,7 +5,9 @@ $(document).ready(function () {
     document.body.style.zoom = "80%"
 });
 
-
+$(".navbar-text").on('click', function(){
+    location.reload();
+});
 
 var today = dayjs().format('dddd, MMMM D YYYY');
 
@@ -13,6 +15,7 @@ var today = dayjs().format('dddd, MMMM D YYYY');
 
 $(".currentWeather").hide();
 $(".last5search ").hide();
+$(".clearstore").hide();
 
 
 
@@ -88,6 +91,7 @@ function displyCity() {
                 $(".list-lastfive").show();
                 $(".btn-secondary").hide();
                 $(".list-lastfive").removeClass('list-lastfivehide');
+                $(".clearstore").slideDown(1000);
 
 
 
@@ -261,14 +265,18 @@ $(".btn-secondary").on('click', function () {
 })
 
 
-$(".list-group-item ").on('click', function () {
+$(".list-lastfive").on('click', '.list-group-item',function () {
 
     city = $(this).text();
     displyCity();
 })
 
 
+$(".clearstore").on('click',function(){
 
+    localStorage.clear();
+    $(".list-lastfive").text(" ");
+});
 
 
 
