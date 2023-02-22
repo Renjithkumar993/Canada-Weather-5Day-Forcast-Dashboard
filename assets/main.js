@@ -16,6 +16,7 @@ var today = dayjs().format('dddd, MMMM D YYYY');
 $(".currentWeather").hide();
 $(".last5search ").hide();
 $(".clearstore").hide();
+$(".Recent").hide();
 
 
 
@@ -44,6 +45,16 @@ var countryCode = "CA";
 var lat = '';
 var lon = '';
 var storeCity = [];
+
+cityName.on("keypress",function(event){
+    if(event.key === "Enter"){
+        event.preventDefault();
+        city = cityName.val();
+        displyCity();
+        cityName.val(" ");
+    }});
+
+
 
 $(".btnsearch").on('click', function () {
 
@@ -92,6 +103,7 @@ function displyCity() {
                 $(".btn-secondary").hide();
                 $(".list-lastfive").removeClass('list-lastfivehide');
                 $(".clearstore").slideDown(1000);
+                $(".Recent").show();
 
 
 
