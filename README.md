@@ -21,7 +21,7 @@ To accesss this website/application please visit https://renjithkumar993.github.
 
 Here is the completed application looks like and the functinality .
 
-
+![gif showing the functionality of the website](./assets/application%20functionality.gif)
 
 
 ## Credits
