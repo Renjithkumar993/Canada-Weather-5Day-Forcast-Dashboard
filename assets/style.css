@@ -82,3 +82,8 @@ left:35%;
 .navbar-text{
   cursor: pointer;
 }
+
+.clearstore{
+  position: absolute;
+  left: 8%;
+}
