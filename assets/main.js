@@ -1,8 +1,8 @@
 
 
 
-$(document).ready(function(){
-    document.body.style.zoom="80%"
+$(document).ready(function () {
+    document.body.style.zoom = "80%"
 });
 
 
@@ -55,7 +55,7 @@ function displyCity() {
     $(".currentWeather").hide();
     $(".last5search ").hide();
 
-   
+
 
 
     var currentWether = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=metric';
@@ -149,7 +149,7 @@ function displyCity() {
 
 
 
-                        for (var i = 0; i <= 40; i += 8) {
+                        for (var i = 0; i <= 39; i += 8) {
 
                             var imageCodeCast = data.list[i].weather[0].icon;
 
@@ -157,37 +157,37 @@ function displyCity() {
                             forcastTime = dayjs(forcastTime).format('dddd, MMMM D')
 
                             var temp = data.list[i].main.temp;
-                          temp = Math.round(temp);
+                            temp = Math.round(temp);
 
-                          var humidity = data.list[i].main.humidity;
-                          humidity = Math.round(humidity);
+                            var humidity = data.list[i].main.humidity;
+                            humidity = Math.round(humidity);
 
-                          var wind = data.list[i].wind.speed;
-                          wind = Math.round(wind);
-                           
+                            var wind = data.list[i].wind.speed;
+                            wind = Math.round(wind);
+
 
                             var forecast = $("<div>").addClass("card m-3 cardHover ").css("width", "18rem").append(
                                 $("<h5>").addClass("card-title fs-5 text card-header").text(forcastTime),
 
-                                
+
 
                                 $("<img>").addClass("card-img-top").attr("src", "http://openweathermap.org/img/w/" + imageCodeCast + ".png").attr("alt", "weather conditon"),
                                 $("<div>").addClass("card-body").append(
 
                                     $("<p>").addClass("card-text fs-5 ps-0 pe-0").text(data.list[i].weather[0].description + " with " + temp + " °C"),
-                                    $("<p>").addClass("card-text fs-5 ps-0 pe-0").text(humidity+ " % Humidity"),
-                                    $("<p>").addClass("card-text fs-5 ps-0 pe-0").text("Wind: " + wind+ " M/S")
+                                    $("<p>").addClass("card-text fs-5 ps-0 pe-0").text(humidity + " % Humidity"),
+                                    $("<p>").addClass("card-text fs-5 ps-0 pe-0").text("Wind: " + wind + " M/S")
 
-                                   
+
 
                                 )
-                              
+
 
 
 
                             );
 
-                           
+
 
                             $(".last5search ").append(forecast);
                             $(".last5search ").fadeIn(1500);
@@ -211,19 +211,19 @@ function displyCity() {
                     })
                     .then(function (data) {
 
-                     var ctemp = data.main.temp ;
-                     ctemp = Math.round(ctemp);
+                        var ctemp = data.main.temp;
+                        ctemp = Math.round(ctemp);
 
-                     var cFeel = data.main.feels_like;
-                     cFeel = Math.round(cFeel);
+                        var cFeel = data.main.feels_like;
+                        cFeel = Math.round(cFeel);
 
-                     var cWind = data.wind.speed ;
-                     cWind = Math.round(cWind);
+                        var cWind = data.wind.speed;
+                        cWind = Math.round(cWind);
 
 
 
                         $(".card-title").text(data.name + " " + today);
-                        $(".card-currenttemp").text("Currenlty " + " " + data.weather[0].description + " " + " with" + " " + ctemp+ " " + " °C");
+                        $(".card-currenttemp").text("Currenlty " + " " + data.weather[0].description + " " + " with" + " " + ctemp + " " + " °C");
                         $(".card-feellike").text("Feels like :" + " " + cFeel + " " + " °C");
                         $(".card-humid").text(data.main.humidity + " " + " %" + " " + "Humidity");
                         $(".card-wind").text("Wind :" + " " + cWind + " " + "M/S");
