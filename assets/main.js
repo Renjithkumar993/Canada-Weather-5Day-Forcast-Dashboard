@@ -1,6 +1,5 @@
 
 
-
 $(document).ready(function () {
     document.body.style.zoom = "80%"
 });
@@ -41,7 +40,7 @@ function openDialog() {
 var cityName = $("#cityname");
 var APIKey = '9891ab8b2a22eb6de78aa870529a7d04';
 var city = "";
-var countryCode = "CA";
+var countryCode = "";
 var lat = '';
 var lon = '';
 var storeCity = [];
@@ -52,6 +51,7 @@ cityName.on("keypress",function(event){
         city = cityName.val();
         displyCity();
         cityName.val(" ");
+        $(".similiar").text("");
     }});
 
 
@@ -61,6 +61,7 @@ $(".btnsearch").on('click', function () {
     city = cityName.val();
     displyCity();
     cityName.val(" ");
+    $(".btn-group").text("");
 });
 
 
@@ -68,13 +69,13 @@ $(".btnsearch").on('click', function () {
 function displyCity() {
     $(".currentWeather").hide();
     $(".last5search ").hide();
-
-
+    
+   
 
 
     var currentWether = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=metric';
 
-    var locationDetailsFind = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + "," + countryCode + '&appid=' + APIKey;
+    var locationDetailsFind = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + "," + "&limit=5" + '&appid=' + APIKey;
 
     if (!city) {
         openDialog();
@@ -104,6 +105,7 @@ function displyCity() {
                 $(".list-lastfive").removeClass('list-lastfivehide');
                 $(".clearstore").slideDown(1000);
                 $(".Recent").show();
+                $(".Similiarcitytext").removeClass("d-none")
 
 
 
@@ -149,6 +151,57 @@ function displyCity() {
 
                 }
                 getCities();
+
+
+                var increase = 0;
+                var fivecities = [];
+                for(i = 0; i < data.length; i ++ ){
+                           fivecities.push({
+                            cityNameforAuto :data[increase].name,
+                            cityCountry :data[increase].country,
+                           })
+                             increase++;
+                             
+                        };
+
+                     increaseTwo = 0;
+                     optionOne = []
+                  for(i = 0 ; i < fivecities.length; i++){
+                         
+                   optionOne.push( fivecities[increaseTwo].cityNameforAuto + " "+ fivecities[increaseTwo].cityCountry);
+                  increaseTwo++;
+                  }
+
+
+               testingArray = [];
+            for(i = 0 ; i <optionOne.length ; i++){
+               
+                var listsDidyoumean= $("<button>").addClass("btn btn-Danger similarcities p-3 g-3").text(optionOne[i]);
+                $(".Similiar").append(listsDidyoumean);
+                testingArray.push(optionOne[i].split(" "));
+
+            }
+           
+             
+
+        
+    
+
+            $(".similarcities").on('click' ,function(){
+            
+            a = $(this).text();
+            a = a.split(" ");
+            city = a.join(",");
+
+          displyCity();
+          $(".similiar").text("");
+          
+            })
+
+            
+
+
+
 
 
                 var lat = data[0].lat;
@@ -236,9 +289,9 @@ function displyCity() {
                         var cWind = data.wind.speed;
                         cWind = Math.round(cWind);
 
+                       console.log(data);
 
-
-                        $(".card-title").text(data.name + " " + today);
+                        $(".card-title").text(data.name + " "+data.sys.country +" " + today);
                         $(".card-currenttemp").text("Currenlty " + " " + data.weather[0].description + " " + " with" + " " + ctemp + " " + " °C");
                         $(".card-feellike").text("Feels like :" + " " + cFeel + " " + " °C");
                         $(".card-humid").text(data.main.humidity + " " + " %" + " " + "Humidity");
